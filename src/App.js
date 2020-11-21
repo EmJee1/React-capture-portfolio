@@ -1,9 +1,35 @@
+// import components and pages
+import Nav from './components/Nav'
 import AboutUs from './pages/AboutUs'
+import ContactUs from './pages/ContactUs'
+import OurWork from './pages/OurWork'
+import MovieDetail from './pages/MovieDetail'
+
+// import styles
+import GlobalStyle from './components/GlobalStyle'
+
+// import router
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
 	return (
 		<div className='App'>
-			<AboutUs/>
+			<GlobalStyle />
+			<Nav />
+			<Switch>
+				<Route path='/' exact>
+					<AboutUs />
+				</Route>
+				<Route path='/work' exact>
+					<OurWork />
+				</Route>
+				<Route path='/work/:id'>
+					<MovieDetail />
+				</Route>
+				<Route path='/contact'>
+					<ContactUs />
+				</Route>
+			</Switch>
 		</div>
 	)
 }
